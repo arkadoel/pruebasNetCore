@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    
+</head>
+<body>
+    <div class="container-fluid">
+            <h1>pagina de prueba</h1>
+            <br/>
+        
+            <input type="button" class="btn btn-info" id="btnprimero" value="primero" /><br/>
+            <input type="button" class="btn btn-info" id="btnsegundo" value="segundo" /><br/>
+            <input type="button" class="btn btn-info" id="btntercero" value="tercero" /><br/>
+            <input type="button" class="btn btn-info" id="btncuarto" value="cuarto" /><br/>
+            <input type="button" class="btn btn-info" id="btnquinto" value="quinto" /><br/>
+            <input type="button" class="btn btn-info" id="btnsexto" value="sexto" /><br/>
+    </div>
+    
+
+    <script src="./lib/jquery/dist/jquery.js"></script>
+    <script src="./lib/popper.js/dist/popper.js"></script>
+    <script src="./lib/bootstrap/dist/js/bootstrap.js"></script>    
+    <script src="./lib/axios/dist/axios.js"></script>  
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#btnprimero').click(function(){
+                axios.get('/api/pruebas/primero', {
+                })
+                .then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            });
+
+            $('#btnsegundo').click(function(){
+                axios.post('/api/pruebas/segundo', {
+                })
+                .then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            });
+
+            $('#btntercero').click(function(){
+
+                var data = $.param({'param1': 'getUnreadCount', 'isNewAdmin':''});
+
+                axios.post('/api/pruebas/tercero', data)
+                .then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            });
+
+            $('#btncuarto').click(function(){
+                var data = $.param({'param1': 'getUnreadCount', 'param2':7});
+                axios.post('/api/pruebas/cuarto', data)
+                .then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            });
+
+
+        });
+    </script> 
+</body>
+</html>
